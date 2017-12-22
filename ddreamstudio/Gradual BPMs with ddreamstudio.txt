@@ -1,0 +1,34 @@
+Download ddreamstudio (https://www.dropbox.com/s/1z22772fycdo8q4/ds200BETA6.zip?dl=0), unzip to a non-protected location like the desktop, and open it.
+Open song file (Ctrl+O).
+Press I (Wave Filter), choose high-pass or low-pass to match personal preference, press OK.
+Find location of first strong beat - Zoom using +/-, scroll with PgUp/PgDn or scrollwheel, place current time cursor (white line) using left-click - then press B
+Press F3 to turn on assist tick, scroll up to the top of the file using Home.
+Tap out beats after the first one placed - Spacebar to start/pause the song, then tap B repeatedly, trying to match the assist tick sound to the music. Tap about 30-60 out if possible. If you can end really precisely on-beat, that's best.
+Press A (autofill beats). The Avg. BPM displayed is based on the beats you've tapped out. Either leave the value or round it off (use your intuition), then press OK
+Press Shift+N to back out the BPM to the beginning of your file.
+Go to View menu -> Time Format -> select Beats.
+Find a good preview music span in your file using Ctrl+G (Go To) and Spacebar to playtest. 
+Once you decide on a range, Ctrl+G -> the first beat, Ctrl+Spacebar to start range selection (a yellow line appears), Ctrl+G -> the last beat, Ctrl+Spacebar to end range selection (a yellow range appears), Edit -> Special -> Set to Song Preview.
+Go to File menu -> Properties and fill out any other desired info. Song Preview will be listed in units of samples. I usually don't bother with song graphics until after I'm finished with the charts, so I leave those blank for now.
+Ctrl+S or go to File -> Save As... and select the .sm extension.
+
+If your file has no non-multiple BPM changes, you can exit ddreamstudio now.
+ddreamstudio internally stores BPMs in terms of samples, so the #BPMS: tag is usually broke as heck in the .sm output. Open the .sm file and do two things:
+- Add 0.009 to the offset, to sync against the ITG "standard". You can also round this value off to 3 decimal places.
+- Make sure the #BPMS: tag matches the beat numbers and values you expect.
+
+
+For BPM changes:
+Kill off all beat markers past the BPM change point. Left-click & drag to select (Home/End/PgUp/PgDn still navigate but make sure to drag a little after jumping) and delete.
+Return to the end of the known BPM section and tap out beats as before using Spacebar to start/pause the song and tapping B.
+Now select the earliest range of new beats that has the same BPM (left-click & drag), and press G to bring up the Grow/Smooth Selected Region menu.
+Do a little guess/check to make the beats land on the waveform - press G, pick a value, press OK, zoom in (+/-) and check, repeat. Once you're confident, move on to the next beat or range. [This takes...some time]
+Save frequently! Use Ctrl+S often, and use the .ds extension for "intermediate commits".
+Once your BPMs are ready to go, Ctrl+S or go to File -> Save As... and select the .sm extension, then perform the cleanup as for a single-BPM file. Note that ddreamstudio uses one-indexed BPMs while the SM format is zero-indexed.
+
+
+
+
+
+
+
